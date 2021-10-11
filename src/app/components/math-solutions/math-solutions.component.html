@@ -1,0 +1,18 @@
+<button nbButton status="primary" (click)="addTask()">Добавить задачу</button>
+<div *ngFor="let task of tskService.getAlgebraTasks()">
+  <nb-card status="success">
+    <nb-card-header>
+      {{task.title}}
+      <button nbButton status="control" *ngIf="userService.getUser()?.role === 'admin'" size="tiny" class="float-right" (click)="editTask(task)">Редактировать</button>
+      <button nbButton status="danger" *ngIf="userService.getUser()?.role === 'admin'" size="tiny" class="float-right" (click)="deleteTask(task)">Удалить</button>
+    </nb-card-header>
+    <nb-card-body>
+      <div>
+        {{task.content}}
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+    </nb-card-footer>
+  </nb-card>
+</div>
+

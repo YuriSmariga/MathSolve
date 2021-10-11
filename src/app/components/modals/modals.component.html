@@ -1,0 +1,15 @@
+<nb-card>
+  <nb-card-header>
+   Редактирование задачи
+  </nb-card-header>
+  <nb-card-body>
+    <ckeditor (change)="ckEditorDataChange($event)"></ckeditor>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton class="float-left" status="success" (click)="submit()">Сохранить</button>
+    <button nbButton class="float-right" status="danger" (click)="close()">Отмена</button>
+  </nb-card-footer>
+</nb-card>
+
+
+

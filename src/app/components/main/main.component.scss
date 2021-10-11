@@ -1,0 +1,30 @@
+nb-sidebar {
+    position: relative!important;
+    top: 0!important;
+  }
+  .main-container-fixed {
+    position: relative!important;
+  }
+
+.nb-theme-default nb-layout .layout .layout-container nb-sidebar .main-container-fixed {
+  top: 0!important;
+}
+
+.main-container .main-container-fixed {
+  position: relative!important;
+  top: 0!important;
+}
+
+::ng-deep nb-sidebar {
+  .main-container-fixed {
+    position: relative!important;
+    top: -0.75rem!important;
+  }
+  .main-container .main-container-fixed {
+    position: relative!important;
+    top: 0!important;
+  }
+}
+
+
+

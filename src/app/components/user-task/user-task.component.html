@@ -1,0 +1,14 @@
+<button nbButton status="primary" (click)="addTask()">Добавить задачу</button>
+<div *ngFor="let task of userTasks">
+  <nb-card>
+    <nb-card-header>
+      {{task.title}}
+      <button nbButton status="danger" (click)="deleteTasks(task)">Удалить задачу</button>
+    </nb-card-header>
+    <nb-card-body>
+      {{task.content}}
+    </nb-card-body>
+    <nb-card-footer>
+    </nb-card-footer>
+  </nb-card>
+</div>
