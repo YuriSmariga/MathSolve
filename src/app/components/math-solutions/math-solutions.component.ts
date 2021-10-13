@@ -13,8 +13,14 @@ import {Task} from '../../interfaces/math/task';
 })
 export class MathSolutionsComponent implements OnInit {
   taskData: any = '';
-  constructor(public tskService: TaskService, private dialogService: NbDialogService, public readonly userService: UserService) { }
+  tasks: Task[] = [];
+  displayTasks: Task[] = [];
 
+
+  constructor(public taskService: TaskService, private dialogService: NbDialogService, public readonly userService: UserService) {
+    this.tasks = taskService.getAlgebraTasks();
+    this.displayTasks = this.tasks;
+  }
 
   ngOnInit(): void {
   }
@@ -36,24 +42,23 @@ export class MathSolutionsComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-    this.tskService.deleteTask(task);
+    this.taskService.deleteTask(task);
   }
 
   addTask() {
-    this.tskService.addTask({
-      content: 'content',
-      id: 55,
-      title: 'New Task',
-      user: {
-        role: 'admin',
-        id: 13,
-        password: 'password',
-        name: 'name',
-        tasks: []
-      },
-      date: new Date(),
-      tags: [],
-      type: 'geometry'
+    this.dialogService.open(ModalsComponent).onClose.subscribe(value => {
+      if (value){
+        this.taskService.addTask(value as Task)
+      }
     })
   }
+
+  searchTasks(searchInput: HTMLInputElement) {
+    if (searchInput.value) {
+      this.displayTasks = this.tasks.filter(value => value.content.includes(searchInput.value));
+    } else {
+      this.displayTasks = this.tasks;
+    }
+  }
+
 }

@@ -49,7 +49,9 @@ export class TaskService {
     let updatingTask = this.tasks.find(value => {
       return value.id === task.id;
     });
-    updatingTask.content = task.content;
+    if (updatingTask) {
+      updatingTask.content = task.content;
+    }
   }
 
   addTask(task: Task): void {

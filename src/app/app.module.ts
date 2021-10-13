@@ -28,6 +28,7 @@ import {TaskService} from './components/services/task.service';
 import { ModalsComponent } from './components/modals/modals.component';
 import {UserService} from './components/services/user.service';
 import { UserTaskComponent } from './components/user-task/user-task.component';
+import { GeneralTaskComponent } from './components/general-task/general-task.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserTaskComponent } from './components/user-task/user-task.component';
     MathSolutionsComponent,
     ModalsComponent,
     UserTaskComponent,
+    GeneralTaskComponent,
   ],
   imports: [
     BrowserModule,

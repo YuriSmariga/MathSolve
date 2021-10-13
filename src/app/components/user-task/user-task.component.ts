@@ -32,4 +32,16 @@ export class UserTaskComponent implements OnInit {
   deleteTasks(task: Task) {
     this.userService.deleteTask(task)
   }
+
+  tasks: Task[] = [];
+  displayTasks: Task[] = [];
+
+  searchTasks(searchInput: HTMLInputElement) {
+    if (searchInput.value) {
+      this.displayTasks = this.tasks.filter(value => value.content.includes(searchInput.value));
+    } else {
+      this.displayTasks = this.tasks;
+    }
+  }
+
 }

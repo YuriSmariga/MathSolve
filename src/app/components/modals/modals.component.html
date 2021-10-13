@@ -3,7 +3,11 @@
    Редактирование задачи
   </nb-card-header>
   <nb-card-body>
-    <ckeditor (change)="ckEditorDataChange($event)"></ckeditor>
+    <input nbInput #taskTitle placeholder="Заголовок" value="{{task?.title}}" (change)="editTask(taskTitle.value, 'title')">
+    <input nbInput #taskType placeholder="Тип" value="{{task?.type}}" (change)="editTask(taskType.value, 'type')">
+<!--    ToDo переделать на datePicker-->
+    <input nbInput #taskDate placeholder="Дата" value="{{task?.date}}" (change)="editTask(taskDate.value, 'date')">
+    <ckeditor (change)="ckEditorDataChange($event)" data="{{task?.content}}"></ckeditor>
   </nb-card-body>
   <nb-card-footer>
     <button nbButton class="float-left" status="success" (click)="submit()">Сохранить</button>

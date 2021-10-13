@@ -26,6 +26,11 @@
           <button nbButton class="float-left" [nbSpinner]="loading" nbSpinnerStatus="danger" nbSpinnerSize="giant" status="success" [disabled]="isUserName()" [disabled]="isPassword()" (click)="onSubmit()">Sign in</button>
           <button nbButton class="float-right" status="basic" (click)="isChange(passIn)">Cancel</button>
         </div>
+        <div class="auth-with">
+          <p>Login with</p>
+          <button nbButton class="vk" ><img src="https://free-png.ru/wp-content/uploads/2020/04/VK_Blue_Logo_t.png"></button>
+          <button nbButton class="google"><img src="https://cdn-icons-png.flaticon.com/512/2875/2875404.png"></button>
+        </div>
       </nb-card-footer>
     </nb-card>
   </nb-layout-column>

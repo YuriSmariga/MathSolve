@@ -35,3 +35,23 @@ nb-card-header{
   flex-wrap: nowrap;
   justify-content: space-between;
 }
+
+p {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.vk, .google {
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+}
+
+img {
+  height: 40px;
+  width: 40px;
+}
+
+.vk {
+  margin-right: 30px;
+}

@@ -1,5 +1,6 @@
-<button nbButton status="primary" (click)="addTask()">Добавить задачу</button>
-<div *ngFor="let task of tskService.getAlgebraTasks()">
+<input nbInput placeholder="Поиск" #searchInput (change)="searchTasks(searchInput)">
+<button nbButton class="float-right" status="primary" (click)="addTask()">Добавить задачу</button>
+<div *ngFor="let task of displayTasks">
   <nb-card status="success">
     <nb-card-header>
       {{task.title}}

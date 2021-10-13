@@ -18,7 +18,14 @@ export class MainComponent implements OnInit {
   items: NbMenuItem[] = [
     {
       title: 'Главная',
-      link: '/main'
+      link: '/main',
+      expanded: true,
+      children: [
+        {
+          title: 'Все задачи',
+          link: 'general'
+        },
+      ]
     },
     {
       title: 'Список тем',

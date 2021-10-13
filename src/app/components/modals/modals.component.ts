@@ -3,6 +3,7 @@ import {NbDialogRef} from '@nebular/theme';
 import {CKEditor4} from 'ckeditor4-angular';
 import {Task} from '../../interfaces/math/task';
 import {TaskService} from '../services/task.service';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-modals',
@@ -14,15 +15,25 @@ export class ModalsComponent implements OnInit {
   private editorData: any;
   task: Task;
 
-  constructor(protected dialogRef: NbDialogRef<ModalsComponent>, private taskService: TaskService) { }
+  constructor(protected dialogRef: NbDialogRef<ModalsComponent>, private taskService: TaskService, private userService: UserService) {
+  }
 
   ngOnInit(): void {
+    if (!this.task) {
+      this.task = {
+        title: '',
+        type: '',
+        content: '',
+        id: this.taskService.getAlgebraTasks().length,
+        date: new Date(),
+        user: this.userService.getUser(),
+        tags: ['']
+      }
+    }
   }
 
   submit() {
-    if (this.task.content) {
       this.dialogRef.close(this.task);
-    }
   }
 
   close() {
@@ -32,6 +43,19 @@ export class ModalsComponent implements OnInit {
   ckEditorDataChange($event: CKEditor4.EventInfo) {
     this.task.content = $event.editor.getData();
     this.taskService.updateTask(this.task);
+  }
 
+  editTask(value: string, dataType: string) {
+    switch (dataType) {
+      case 'title':
+        this.task.title = value;
+        break;
+      case 'type':
+        this.task.type = value;
+        break;
+      case 'date':
+        this.task.date = new Date();
+        break;
+    }
   }
 }

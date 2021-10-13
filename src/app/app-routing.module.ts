@@ -4,6 +4,7 @@ import {LoginComponent} from './components/login/login.component';
 import {MainComponent} from './components/main/main.component';
 import {MathSolutionsComponent} from './components/math-solutions/math-solutions.component';
 import {UserTaskComponent} from './components/user-task/user-task.component';
+import {GeneralTaskComponent} from './components/general-task/general-task.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'main', component: MainComponent, children: [
       {path: 'algebra', component: MathSolutionsComponent},
       {path: 'geometry', component: MathSolutionsComponent},
-      {path: 'userTasks', component: UserTaskComponent}
+      {path: 'userTasks', component: UserTaskComponent},
+      {path: 'general', component: GeneralTaskComponent}
     ]},
 
 
